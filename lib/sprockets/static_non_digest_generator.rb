@@ -53,7 +53,8 @@ module Sprockets
               f.write asset_body
             end
             # Set modification and access times
-            File.utime(File.atime(abs_digest_path), mtime, abs_logical_path)
+            #File.utime(File.atime(abs_digest_path), mtime, abs_logical_path)
+            File.touch abs_logical_path
 
             # Also write gzipped asset
             File.open("#{abs_logical_path}.gz", 'wb') do |f|
